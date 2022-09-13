@@ -12,7 +12,7 @@ https://boomerizzy3.github.io/Coding-Assessment-/
 
 ## Screenshot
 
-
+https://github.com/Boomerizzy3/Coding-Assessment-/blob/main/assets/images/website-screenshot.png
 
 ## Credits
 
