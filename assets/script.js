@@ -5,6 +5,9 @@ var resultscreen = document.getElementById("result");
 var submitbutton = document.getElementById("submit");
 var leaderboard = document.getElementById("leaderboard")
 var listofscores = document.getElementById("listofscores")
+var backbutton = document.getElementById("go-back");
+var clearscores = document.getElementById("clear");
+var viewscores = document.getElementById("high-score")
 var previousscores = [];
 var storedscores = [];
 var index = 0
@@ -13,16 +16,34 @@ var testinprogress = 0
 var timerstart = setInterval(timercountdown, 1000)
 var score = 0
 
+viewscores.addEventListener("click", function() {
+    if (testinprogress == 1) {
+        return;
+    } else {
+    resetleaderboard()
+    leaderboardupdate()
+    homescreen.style.display = "none"
+    resultscreen.style.display = "none"
+    leaderboard.style.display = "block"
+    }
+})
+
 function leaderboardupdateonload() {
     var storedscores1 = localStorage.getItem("score")
-    var storedscores2 = storedscores1.split(",")
 
-    for (let i = 0; i < storedscores2.length; i++) {
+    if (storedscores1 == null) {
+        return;
+    } else {
+        var storedscores2 = storedscores1.split(",")
+        
+        for (let i = 0; i < storedscores2.length; i++) {
         storedscores.push(storedscores2[i]);
         }
 
-    console.log(storedscores2)
+        console.log(storedscores2)
+    }
 }
+
 
 leaderboardupdateonload()
 
@@ -42,6 +63,7 @@ startbutton.addEventListener("click", function() {
     questions[0].style.display = "block"
     document.getElementById("time").innerHTML = ("Time: " + timer)
     testinprogress++
+    viewscores.style.color = "gray"
     selectanswer();
 });
 
@@ -69,6 +91,7 @@ function nextquestion(event) {
 
     if (index == 4) {
         testinprogress--
+        viewscores.style.color = "blue"
         index -= 4
         results()
         return;
@@ -88,6 +111,12 @@ function results() {
 
 submitbutton.addEventListener("click", function() {
     var initials = document.getElementById("initial").value
+    initialtrim = initials.trim()
+
+    if (initialtrim.length < 2) {
+        alert("Initials must be at least 2 characters.")
+        return;
+    } else {
     JSON.stringify(initials)
     var upinitials = initials.toUpperCase()
     score = [upinitials, timer]
@@ -97,6 +126,7 @@ submitbutton.addEventListener("click", function() {
     leaderboardupdate()
     resultscreen.style.display = "none"
     leaderboard.style.display = "block"
+    }
 });
 
 function leaderboardupdate() {
@@ -108,3 +138,21 @@ function leaderboardupdate() {
         listofscores.appendChild(para);
       }
 }
+
+backbutton.addEventListener("click", function() {
+    location.reload();
+})
+
+clearscores.addEventListener("click", function() {
+    storedscores = [];
+    localStorage.clear();
+    resetleaderboard()
+    
+})
+
+function resetleaderboard() {
+    while (listofscores.hasChildNodes()) {
+        listofscores.removeChild(listofscores.firstChild)
+    }
+};
+

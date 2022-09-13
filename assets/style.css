@@ -12,6 +12,10 @@ header {
     margin-left: 4rem;
 }
 
+#high-score:hover {
+    cursor: pointer;
+}
+
 #time {
     margin-right: 4rem;
 }
@@ -118,4 +122,26 @@ li {
     background-color: lightgray;
     width: 20rem;
     padding: .5rem;
+}
+
+@media screen and (max-width: 1000px) {
+    main p {
+        margin: 0rem;
+        margin-bottom: .5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        margin: 0rem;
+        max-width: none;
+    }
+
+    #question2 button, #question3 button {
+        width: auto;
+    }
 }
