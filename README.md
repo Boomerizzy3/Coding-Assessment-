@@ -16,7 +16,7 @@ https://github.com/Boomerizzy3/Coding-Assessment-/blob/main/assets/images/websit
 
 ## Credits
 
-Rutgers Coding Bootcamp Module 3 Challenge
+Rutgers Coding Bootcamp Module 4 Challenge
 
 ## License
 
