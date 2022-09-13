@@ -124,6 +124,10 @@ li {
     padding: .5rem;
 }
 
+#leaderboard button {
+    margin-left: 0rem;
+}
+
 @media screen and (max-width: 1000px) {
     main p {
         margin: 0rem;
