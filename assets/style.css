@@ -26,8 +26,9 @@ h1 {
 
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 10rem;
 }
 
@@ -77,6 +78,20 @@ main button {
 #home-screen button, #result button, #leaderboard button {
     text-align: center;
     width: auto;
+}
+
+#correct-answer, #wrong-answer {
+    display: none;
+    border-top: gray solid 0.1rem;
+    width: 65%;
+    margin-top: -5rem;
+}
+
+#correct-answer h1, #wrong-answer h1{
+    display: block;
+    color: gray;
+    font-style: italic;
+    font-weight: 300;
 }
 
 #result button {

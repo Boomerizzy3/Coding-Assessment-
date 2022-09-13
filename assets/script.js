@@ -8,6 +8,9 @@ var listofscores = document.getElementById("listofscores")
 var backbutton = document.getElementById("go-back");
 var clearscores = document.getElementById("clear");
 var viewscores = document.getElementById("high-score")
+var correctanswer = document.getElementById("correct-answer");
+var wronganswer = document.getElementById("wrong-answer");
+var buttons = document.querySelectorAll("button");
 var previousscores = [];
 var storedscores = [];
 var index = 0
@@ -15,6 +18,8 @@ var timer = 75
 var testinprogress = 0
 var timerstart = setInterval(timercountdown, 1000)
 var score = 0
+
+console.log(buttons);
 
 viewscores.addEventListener("click", function() {
     if (testinprogress == 1) {
@@ -47,8 +52,6 @@ function leaderboardupdateonload() {
 
 leaderboardupdateonload()
 
-console.log(storedscores);
-
 function timercountdown() {
     if (testinprogress != 1) {
         return;
@@ -72,13 +75,15 @@ questions[index].addEventListener("click", function(event) {
     var element = event.target;
 
     if (element.matches(".correct")) {
+        wronganswer.style.display = "none"
+        correctanswer.style.display = "block"
         nextquestion()
-        console.log("yep")
     } else if (element.matches("button")) {
+        correctanswer.style.display = "none"
+        wronganswer.style.display = "block"
         timer -= 10
         document.getElementById("time").innerHTML = ("Time: " + timer)
         nextquestion()
-        console.log("nooope")
     } else {
         return;
     }
@@ -90,13 +95,14 @@ function nextquestion(event) {
     questions[index].style.display = "none";
 
     if (index == 4) {
+        wronganswer.style.display = "none"
+        correctanswer.style.display = "none"
         testinprogress--
         viewscores.style.color = "blue"
         index -= 4
         results()
         return;
     } else {
-        console.log("it worked boii");
         index++
         questions[index].style.display = "block";
         selectanswer()
@@ -155,4 +161,3 @@ function resetleaderboard() {
         listofscores.removeChild(listofscores.firstChild)
     }
 };
-
