@@ -9,36 +9,113 @@ header {
 
 #high-score {
     color: blue;
+    margin-left: 4rem;
+}
+
+#time {
+    margin-right: 4rem;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.75rem;
 }
 
 main {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 10rem;
+}
+
+main section {
+    display: none;
+    margin: 5rem;
+    max-width: 65%;
 }
 
 main p {
     font-size: 1.35rem;
     margin-left: 10rem;
     margin-right: 10rem;
-}
-
-.home-screen {
     text-align: center;
 }
 
-main h1, main p {
+#home-screen {
+    display: block;
     text-align: center;
 }
 
-.home-screen button {
+#home-screen h1 {
+    text-align: center;
+}
+
+main h1 {
+    text-align: left;
+}
+
+main button {
     font-size: 1.35rem;
     font-family: Arial, Helvetica, sans-serif;
     background-color: blue;
     border-radius: .5rem;
     color: white;
+    padding: 0.5rem;
+    margin-bottom: .5rem;
+    margin-left: -2rem;
+    text-align: left;
+    width: 12rem;
+}
+
+#question2 button, #question3 button {
+    width: 16rem;
+}
+
+#home-screen button, #result button, #leaderboard button {
+    text-align: center;
+    width: auto;
+}
+
+#result button {
+    margin-left: .5rem;
+}
+
+#leaderboard button {
+    margin-right: 2.5rem;
+}
+
+#result p {
+    text-align: left;
+    margin-left: 0rem;
+}
+
+label {
+    font-size: 1.35rem;
+    font-weight: 300;
+}
+
+input {
+    height: 1.5rem;
+    margin: 1rem;
+    margin-bottom: .25rem;
+}
+
+main button:hover {
+    cursor: pointer;
+    background-color: purple;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 1.35rem;
+}
+
+#leaderboard p {
+    margin-left: 0rem;
+    text-align: left;
+    background-color: lightgray;
+    width: 20rem;
+    padding: .5rem;
 }

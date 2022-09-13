@@ -10,22 +10,76 @@
   <body>
     <header>
       <p id="high-score">View high scores</p>
-      <p id="time">Time:</p>
+      <p id="time">Timer: 0</p>
     </header>
     <main>
-      <section class="home-screen">
+      <section id="home-screen">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code related questions within the given time limit. Keep in mind that each incorrect answer will reduce your remaining time by 10 seconds.</p>
-        <button>Start Quiz</button>
+        <button id="start-quiz">Start Quiz</button>
       </section>
-        <!-- <section id="question1">How should you call a function in Javascript?
-            <ul>
-                <li>A) Type the function on a new line after defining the function</li>
-                <li>B) Make a for loop after defining the funtion</li>
-                <li>C) Make a variable with the function's name</li>
-                <li>D) All of the above</li>
-            </ul> -->
-        </section>
+      <section id="question1">
+        <h1>Commonly used data types DO Not Inlcude</h1>
+          <ul>
+              <li><button>1. strings</button></li>
+              <li><button>2. booleans</button></li>
+              <li><button class="correct">3. alerts</button></li>
+              <li><button>4. numbers</button></li>
+          </ul>
+      </section>
+      <section id="question2">
+        <h1>The condition in an if / else statement is enclosed with _______.</h1>
+          <ul>
+              <li><button>1. quotes</button></li>
+              <li><button>2. curly brackets</button></li>
+              <li><button class="correct">3. parenthesis</button></li>
+              <li><button>4. square brackets</button></li>
+          </ul>
+      </section>
+      <section id="question3">
+        <h1>Arrays in JavaScript can be used to store _______.</h1>
+          <ul>
+              <li><button>1. numbers and strings</button></li>
+              <li><button>2. other arrays</button></li>
+              <li><button>3. booleans</button></li>
+              <li><button class="correct">4. all of the above</button></li>
+          </ul>
+      </section>
+      <section id="question4">
+        <h1>String values must be enclosed within _______ when being assigned to variables.</h1>
+          <ul>
+              <li><button>1. commas</button></li>
+              <li><button>2. curly brackets</button></li>
+              <li><button class="correct">3. quotes</button></li>
+              <li><button>4. parenthesis</button></li>
+          </ul>
+      </section>
+      <section id="question5">
+        <h1>A very useful tool used during development and debugger for printing content to the debugger is:</h1>
+          <ul>
+              <li><button>1. JavaScript</button></li>
+              <li><button>2. terminal/bash</button></li>
+              <li><button>3. for loops</button></li>
+              <li><button class="correct">4. console.log</button></li>
+          </ul>
+      </section>
+      <section id="result">
+        <h1>All done!</h1>
+        <p id="score"></p>
+        <label for="initials">Enter your initials</label>
+        <input type="text" maxlength="3" name="initials" id="initial" oninput="this.value = this.value.replace(/[^a-z, A-Z]/g, '').replace(/(\..*)\./g, '$1');">
+        <button id="submit"">Submit</button>
+      </section>
+      <section id="leaderboard">
+        <div>
+          <h1>High scores</h1>
+        </div>
+        <div id="listofscores"></div>
+        <div>
+          <button>Go back</button>
+          <button>Clear high scores</button>
+        </div>
+      </section>
     </main>
     <script src="assets/script.js"></script>
   </body>
