@@ -13,14 +13,20 @@ var testinprogress = 0
 var timerstart = setInterval(timercountdown, 1000)
 var score = 0
 
-// function leaderboardupdateonload() {
-//     var storedscores = localStorage.getItem("score")
-//     previousscores.push(storedscores)
-// }
+function leaderboardupdateonload() {
+    var storedscores1 = localStorage.getItem("score")
+    var storedscores2 = storedscores1.split(",")
 
-// leaderboardupdateonload()
+    for (let i = 0; i < storedscores2.length; i++) {
+        storedscores.push(storedscores2[i]);
+        }
 
-console.log(previousscores);
+    console.log(storedscores2)
+}
+
+leaderboardupdateonload()
+
+console.log(storedscores);
 
 function timercountdown() {
     if (testinprogress != 1) {
@@ -87,7 +93,6 @@ submitbutton.addEventListener("click", function() {
     score = [upinitials, timer]
     previousscores.push(score.join(" - "));
     storedscores.push(previousscores);
-    JSON.stringify(storedscores);
     localStorage.setItem("score", storedscores);
     leaderboardupdate()
     resultscreen.style.display = "none"
@@ -95,10 +100,11 @@ submitbutton.addEventListener("click", function() {
 });
 
 function leaderboardupdate() {
-    var lastscore = localStorage.getItem("score")
-    const para = document.createElement("p");
-    const node = document.createTextNode(lastscore);
-    para.appendChild(node);
-    listofscores.appendChild(para);
-    console.log(lastscore);
+    
+    for (let i = 0; i < storedscores.length; i++) {
+        const para = document.createElement("p");
+        const node = document.createTextNode(storedscores[i]);
+        para.appendChild(node);
+        listofscores.appendChild(para);
+      }
 }
